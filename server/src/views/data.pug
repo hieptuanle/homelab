@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Temperature Data
+  body
+    h1 Temperature Data
+    table
+      tr
+        th ID
+        th Timestamp
+        th Temperature
+      each row in data
+        tr
+          td= row.id
+          td= row.timestamp
+          td= row.temperature
