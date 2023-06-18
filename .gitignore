@@ -68,3 +68,7 @@ dist/
 
 # Local History for Visual Studio Code
 .history/
+
+build/
+
+.DS_Store

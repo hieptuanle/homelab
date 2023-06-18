@@ -1,10 +1,10 @@
 #include <ESP8266WiFi.h>
 
-const char *ssid = "Abby";       // Your WiFi SSID
-const char *password = "abbyvietnam"; // Your WiFi password
+const char *ssid = "ZhumaoT2";           // Your WiFi SSID
+const char *password = "zhumao19639394"; // Your WiFi password
 
-const char *host = "192.168.2.103"; // Your web server address
-const int httpPort = 3000;          // Your web server port (usually 80)
+const char *host = "192.168.50.100"; // Your web server address
+const int httpPort = 3000;           // Your web server port (usually 80)
 
 void setupWifi()
 {
@@ -30,7 +30,7 @@ void setupWifi()
   Serial.println(WiFi.localIP());
 }
 
-void sendTemperature(float temp, float humidity, char *sensor)
+void sendTemperature(float temp, float humidity, const char *sensor)
 {
   // Connect to the server
   WiFiClient client;

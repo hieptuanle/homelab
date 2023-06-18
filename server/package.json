@@ -1,29 +1,33 @@
 {
-  "name": "homelab",
+  "name": "server2",
   "version": "1.0.0",
-  "description": "Homelab",
-  "main": "server.js",
-  "scripts": {
-    "start": "node dist/server.js",
-    "build": "babel src --out-dir dist",
-    "dev": "nodemon --exec npx babel-node src/server.js"
+  "description": "This project was bootstrapped with Fastify-CLI.",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
   },
-  "author": "Hiep Le",
-  "license": "MIT",
+  "scripts": {
+    "test": "tap \"test/**/*.test.js\"",
+    "start": "fastify start -l -a 0.0.0.0 info app.js",
+    "dev": "fastify start -w -l info -P -a 0.0.0.0 app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@fastify/static": "^6.10.2",
+    "@fastify/autoload": "^5.0.0",
+    "@fastify/postgres": "^5.2.0",
+    "@fastify/sensible": "^5.0.0",
     "@fastify/view": "^7.4.1",
-    "fastify": "^4.17.0",
-    "pug": "^3.0.2",
-    "sqlite3": "^5.1.6"
+    "ejs": "^3.1.9",
+    "eslint": "^8.43.0",
+    "fastify": "^4.0.0",
+    "fastify-cli": "^5.7.1",
+    "fastify-plugin": "^4.0.0",
+    "pg": "^8.11.0",
+    "prettier": "^2.8.8"
   },
   "devDependencies": {
-    "@babel/cli": "^7.21.5",
-    "@babel/core": "^7.22.1",
-    "@babel/node": "^7.22.1",
-    "@babel/preset-env": "^7.22.4",
-    "eslint": "^8.42.0",
-    "nodemon": "^2.0.22",
-    "prettier": "^2.8.8"
+    "tap": "^16.1.0"
   }
 }

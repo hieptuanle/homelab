@@ -1,37 +1,34 @@
-#include <Wire.h>
-#include <ArtronShop_SHT3x.h>
+#include "DHT.h"
 
-ArtronShop_SHT3x sht3x(0x44, &Wire);
+#define DHT_PIN 5 // D1
+#define DHT_TYPE DHT22
 
-#define LM35_PIN A0 // ADC0 pin
-#define SCL_PIN 5   // D1
+DHT dht(DHT_PIN, DHT_TYPE);
 
-void setupSHT3x()
+void setupDHT22()
 {
-  Wire.begin();
-  while (!sht3x.begin())
+  Serial.println("DHT22 setup");
+  dht.begin();
+}
+
+void readDHT22(float &temperature, float &humidity)
+{
+  humidity = dht.readHumidity();
+  temperature = dht.readTemperature();
+  // Check if any reads failed and exit early (to try again).
+  if (isnan(humidity) || isnan(temperature))
   {
-    Serial.println("SHT3x not found !");
-    delay(1000);
+    Serial.println(F("Failed to read from DHT sensor!"));
+    return;
   }
 }
 
-void readtSHT3x(float &temperature, float &humidity)
+void setupSensor()
 {
-  if (sht3x.measure())
-  {
-    temperature = sht3x.temperature();
-    humidity = sht3x.humidity();
-  }
-  else
-  {
-    Serial.println("SHT3x read error");
-  }
+  setupDHT22();
 }
 
-float getLM35Temp()
+void readTempHumidSensor(float &temperature, float &humidity)
 {
-  float voltage = analogRead(LM35_PIN) / 1023.0 * 3.3; // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - VCC)
-  float temperature = voltage * 100;                   // Convert the voltage to a temperature
-  return temperature;
+  readDHT22(temperature, humidity);
 }
