@@ -7,6 +7,6 @@
  */
 module.exports = async function (fastify) {
   fastify.get("/", async function (request, reply) {
-    return reply.view("home.ejs");
+    return reply.view("home", { title: "Home" });
   });
 };

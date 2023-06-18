@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <title><%= title %> - Hiep's Homelab</title>
+  </head>
+  <body>
+    <header class="container-fluid" style="padding-top: 0.5rem">
+      <nav>
+        <ul>
+          <li><strong>Hiep's Homelab</strong></li>
+        </ul>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/data">Data</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container"><%- body %></main>
+    <footer class="container-fluid">
+      <p>
+        Built with ❤️ by
+        <a
+          href="https://twitter.com/hieptuanle5"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Hiep Le</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>

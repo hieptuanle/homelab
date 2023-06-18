@@ -14,13 +14,11 @@ module.exports = async function (fastify) {
   });
 
   fastify.get("/", async function (request, reply) {
-    // return reply.view("home.ejs");
-
     try {
       const result = await fastify.pg.query(
-        "SELECT * FROM temperature_data ORDER BY timestamp DESC",
+        "SELECT * FROM temperature_data ORDER BY timestamp DESC LIMIT 100",
       );
-      return reply.view("data.ejs", { data: result.rows });
+      return reply.view("data.ejs", { title: "Data", data: result.rows });
     } catch (err) {
       fastify.log.error(err);
       reply.status(500).send();

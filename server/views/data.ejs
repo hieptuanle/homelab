@@ -1,27 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Temperature Data</title>
-  </head>
-  <body>
-    <h1>Temperature Data</h1>
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>Timestamp</th>
-        <th>Temperature</th>
-        <th>Humidity</th>
-        <th>Sensor</th>
-      </tr>
-      <% for(var i=0; i<data.length; i++) { %>
-        <tr>
-          <td><%= data[i].id %></td>
-          <td><%= data[i].timestamp %></td>
-          <td><%= data[i].temperature %></td>
-          <td><%= data[i].humidity %></td>
-          <td><%= data[i].sensor %></td>
-        </tr>
-      <% } %>
-    </table>
-  </body>
-</html>
+<h1>Temperature Data</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Timestamp</th>
+    <th>Temperature</th>
+    <th>Humidity</th>
+    <th>Sensor</th>
+  </tr>
+  <% for(var i=0; i<data.length; i++) { %>
+    <tr>
+      <td><%= data[i].id %></td>
+      <td><%= data[i].timestamp %></td>
+      <td><%= data[i].temperature %></td>
+      <td><%= data[i].humidity %></td>
+      <td><%= data[i].sensor %></td>
+    </tr>
+  <% } %>
+</table>

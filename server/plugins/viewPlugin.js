@@ -8,5 +8,7 @@ module.exports = fp(async function (fastify) {
   fastify.register(require("@fastify/view"), {
     engine: { ejs: require("ejs") },
     root: resolve(join(__dirname, "..", "views")),
+    includeViewExtension: true,
+    layout: "./components/layout",
   });
 });

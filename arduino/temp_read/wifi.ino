@@ -3,7 +3,7 @@
 const char *ssid = "ZhumaoT2";           // Your WiFi SSID
 const char *password = "zhumao19639394"; // Your WiFi password
 
-const char *host = "192.168.50.100"; // Your web server address
+const char *host = "192.168.50.54"; // Your web server address
 const int httpPort = 3000;           // Your web server port (usually 80)
 
 void setupWifi()
