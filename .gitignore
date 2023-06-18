@@ -72,3 +72,5 @@ dist/
 build/
 
 .DS_Store
+
+WifiCredentials.h

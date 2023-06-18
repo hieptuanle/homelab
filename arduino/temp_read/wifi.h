@@ -1,10 +1,11 @@
 #include <ESP8266WiFi.h>
+#include "WifiCredentials.h"
 
-const char *ssid = "ZhumaoT2";           // Your WiFi SSID
-const char *password = "zhumao19639394"; // Your WiFi password
+const char *ssid = WIFI_SSID;         // Your WiFi SSID
+const char *password = WIFI_PASSWORD; // Your WiFi password
 
-const char *host = "192.168.50.54"; // Your web server address
-const int httpPort = 3000;           // Your web server port (usually 80)
+const char *host = SERVER_ADDRESS; // Your web server address
+const int httpPort = SERVER_PORT;  // Your web server port (usually 80)
 
 void setupWifi()
 {

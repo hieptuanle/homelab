@@ -1,3 +1,8 @@
+#include "motion.h"
+#include "temp.h"
+#include "wifi.h"
+#include "light.h"
+
 unsigned long lastTempCheck = 0;
 unsigned long lastMotionCheck = 0;
 
