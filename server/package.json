@@ -18,6 +18,7 @@
     "@fastify/autoload": "^5.0.0",
     "@fastify/postgres": "^5.2.0",
     "@fastify/sensible": "^5.0.0",
+    "@fastify/static": "^6.10.2",
     "@fastify/view": "^7.4.1",
     "ejs": "^3.1.9",
     "eslint": "^8.43.0",

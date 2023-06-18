@@ -7,20 +7,20 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
     />
+    <link rel="stylesheet" href="/public/custom.css" />
     <title><%= title %> - Hiep's Homelab</title>
   </head>
   <body>
-    <header class="container-fluid" style="padding-top: 0.5rem">
-      <nav>
-        <ul>
-          <li><strong>Hiep's Homelab</strong></li>
-        </ul>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/data">Data</a></li>
-        </ul>
-      </nav>
-    </header>
+    <nav class="container-fluid">
+      <ul>
+        <li><strong>Hiep's Homelab</strong></li>
+      </ul>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/data">Data</a></li>
+      </ul>
+    </nav>
+
     <main class="container"><%- body %></main>
     <footer class="container-fluid">
       <p>
