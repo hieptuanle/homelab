@@ -2,10 +2,15 @@ module.exports = async function (fastify) {
   fastify.post("/", async function postData(req, reply) {
     const { temperature, sensor, humidity } = req.query;
     try {
-      await fastify.pg.query(
-        "INSERT INTO temperature_data(temperature, sensor, humidity) VALUES($1, $2, $3)",
+      const result = await fastify.pg.query(
+        "INSERT INTO temperature_data(temperature, sensor, humidity) VALUES($1, $2, $3) RETURNING *",
         [temperature, sensor, humidity],
       );
+
+      console.log({ result });
+
+      fastify.io.emit("temperature", result.rows[0]);
+
       return reply.send("ok");
     } catch (err) {
       fastify.log.error(err);
