@@ -7,8 +7,6 @@ module.exports = async function (fastify) {
         [temperature, sensor, humidity],
       );
 
-      console.log({ result });
-
       fastify.io.emit("sensorData", result.rows[0]);
 
       return reply.send("ok");
