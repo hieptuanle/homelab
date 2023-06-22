@@ -6,11 +6,11 @@ import { Socket, io } from "socket.io-client";
 
 let socket: Socket;
 
-const TemperatureTable: React.FC<{ initialTemperatureDataPoints: any }> = ({
-  initialTemperatureDataPoints,
+const SensorDataTable: React.FC<{ initialSensorDataRows: any }> = ({
+  initialSensorDataRows,
 }) => {
-  const [temperatureDataPoints, setTemperatureDataPoints] = useState<any>(
-    initialTemperatureDataPoints
+  const [sensorDataRows, setSensorDataRows] = useState<any>(
+    initialSensorDataRows
   );
 
   useEffect(() => {
@@ -18,15 +18,15 @@ const TemperatureTable: React.FC<{ initialTemperatureDataPoints: any }> = ({
   }, []);
 
   useEffect(() => {
-    function onTemperature(data: any) {
-      setTemperatureDataPoints((prevTemperatureDataPoints: any) =>
+    function onSensorData(data: any) {
+      setSensorDataRows((prevTemperatureDataPoints: any) =>
         [data, ...prevTemperatureDataPoints].slice(0, 10)
       );
     }
 
-    socket.on("temperature", onTemperature);
+    socket.on("sensorData", onSensorData);
     return () => {
-      socket.off("temperature", onTemperature);
+      socket.off("sensorData", onSensorData);
     };
   }, []);
 
@@ -43,15 +43,15 @@ const TemperatureTable: React.FC<{ initialTemperatureDataPoints: any }> = ({
           </tr>
         </thead>
         <tbody>
-          {temperatureDataPoints.map((dataPoint: any) => (
-            <tr key={dataPoint.id}>
-              <td className="border px-4 py-2">{dataPoint.id}</td>
+          {sensorDataRows.map((sensorDataRow: any) => (
+            <tr key={sensorDataRow.id}>
+              <td className="border px-4 py-2">{sensorDataRow.id}</td>
               <td className="border px-4 py-2">
-                {dayjs(dataPoint.timestamp).format("YYYY-MM-DD HH:mm:ss")}
+                {dayjs(sensorDataRow.timestamp).format("YYYY-MM-DD HH:mm:ss")}
               </td>
-              <td className="border px-4 py-2">{dataPoint.temperature}</td>
-              <td className="border px-4 py-2">{dataPoint.humidity}</td>
-              <td className="border px-4 py-2">{dataPoint.sensor}</td>
+              <td className="border px-4 py-2">{sensorDataRow.temperature}</td>
+              <td className="border px-4 py-2">{sensorDataRow.humidity}</td>
+              <td className="border px-4 py-2">{sensorDataRow.sensor}</td>
             </tr>
           ))}
         </tbody>
@@ -60,4 +60,4 @@ const TemperatureTable: React.FC<{ initialTemperatureDataPoints: any }> = ({
   );
 };
 
-export default TemperatureTable;
+export default SensorDataTable;

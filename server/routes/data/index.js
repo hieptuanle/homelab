@@ -3,13 +3,13 @@ module.exports = async function (fastify) {
     const { temperature, sensor, humidity } = req.query;
     try {
       const result = await fastify.pg.query(
-        "INSERT INTO temperature_data(temperature, sensor, humidity) VALUES($1, $2, $3) RETURNING *",
+        "INSERT INTO sensor_data(temperature, sensor, humidity) VALUES($1, $2, $3) RETURNING *",
         [temperature, sensor, humidity],
       );
 
       console.log({ result });
 
-      fastify.io.emit("temperature", result.rows[0]);
+      fastify.io.emit("sensorData", result.rows[0]);
 
       return reply.send("ok");
     } catch (err) {
@@ -21,7 +21,7 @@ module.exports = async function (fastify) {
   fastify.get("/", async function (request, reply) {
     try {
       const result = await fastify.pg.query(
-        "SELECT * FROM temperature_data ORDER BY timestamp DESC LIMIT 100",
+        "SELECT * FROM sensor_data ORDER BY id DESC LIMIT 100",
       );
       return reply.view("data.ejs", { title: "Data", data: result.rows });
     } catch (err) {

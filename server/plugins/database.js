@@ -12,7 +12,7 @@ module.exports = fp(async function (fastify) {
 
   fastify.addHook("onReady", async () => {
     const createTableQuery = `
-      CREATE TABLE IF NOT EXISTS temperature_data (
+      CREATE TABLE IF NOT EXISTS sensor_data (
         id SERIAL PRIMARY KEY,
         timestamp TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
         temperature REAL NOT NULL,
