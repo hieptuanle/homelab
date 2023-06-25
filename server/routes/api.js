@@ -20,4 +20,16 @@ module.exports = async function (fastify) {
       reply.status(500).send();
     }
   });
+
+  fastify.get("/api/sensor-data-count", async function (request, reply) {
+    try {
+      const result = await fastify.pg.query(
+        "SELECT count(*) FROM sensor_data WHERE timestamp > NOW() - INTERVAL '30 day'",
+      );
+      return reply.send(result.rows[0]);
+    } catch (err) {
+      fastify.log.error(err);
+      reply.status(500).send();
+    }
+  });
 };

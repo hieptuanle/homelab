@@ -9,6 +9,14 @@ module.exports = fp(async function (fastify) {
     rewritePrefix: "/_next",
     websocket: true,
   });
+
+  fastify.register(require("@fastify/http-proxy"), {
+    upstream: process.env.NEXTJS_URL,
+    prefix: "/__nextjs_original-stack-frame",
+    rewritePrefix: "/__nextjs_original-stack-frame",
+    websocket: true,
+  });
+
   fastify.register(require("@fastify/http-proxy"), {
     upstream: process.env.NEXTJS_URL,
     prefix: "/next-assets",

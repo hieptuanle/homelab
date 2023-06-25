@@ -10,6 +10,10 @@ module.exports = async function (fastify) {
     return reply.from("/next" + request.raw.url);
   });
 
+  fastify.get("/dashboard2", async function (request, reply) {
+    return reply.from("/next" + request.raw.url);
+  });
+
   fastify.get("/hello", async function (request, reply) {
     return reply.from("/next" + request.raw.url);
   });

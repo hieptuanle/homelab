@@ -12,7 +12,7 @@ const SensorDataDisplay: React.FC<{ initialSensorData: any }> = ({
   const [sensorData, setSensorData] = useState<any>(initialSensorData);
 
   useEffect(() => {
-    socket = io();
+    socket = io(process.env.HOMELAB_URL || "http://localhost:3000");
   }, []);
 
   useEffect(() => {
