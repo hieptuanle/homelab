@@ -1,21 +1,16 @@
 import { Suspense } from "react";
 import Clock from "./clock";
-import SensorDataTable from "./sensor-data-table";
 import Link from "next/link";
 import SensorDataDisplay from "./sensor-data-display";
+import YeelightDisplay from "./yeelight-display";
+import { getSensorData, getYeelightState } from "@/lib/homelab-api";
 
 export default async function Dashboard() {
-  const sensorDataResponse = await fetch(
-    process.env.HOMELAB_URL + "/api/sensor-data?limit=1",
-    {
-      cache: "no-store",
-    }
-  );
-
-  const sensorData = await sensorDataResponse.json();
+  const sensorData = await getSensorData();
+  const yeelightState = await getYeelightState();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between py-10">
+    <main className="flex min-h-screen flex-col items-center justify-around py-10 px-5">
       <div className="flex flex-col items-center gap-5">
         <h1 className="text-6xl text-gray-900">Dashboard</h1>
         <p>
@@ -29,7 +24,7 @@ export default async function Dashboard() {
       </div>
 
       <SensorDataDisplay initialSensorData={sensorData[0]} />
-
+      <YeelightDisplay initialState={yeelightState} />
       <div>
         <Suspense fallback={<div>Loading clock...</div>}>
           <Clock initialTime={new Date().toLocaleTimeString()} />

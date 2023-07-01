@@ -2,18 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
-import { Socket, io } from "socket.io-client";
-
-let socket: Socket;
+import { socket } from "@/lib/socketio";
 
 const SensorDataDisplay: React.FC<{ initialSensorData: any }> = ({
   initialSensorData,
 }) => {
   const [sensorData, setSensorData] = useState<any>(initialSensorData);
-
-  useEffect(() => {
-    socket = io(process.env.HOMELAB_URL || "http://localhost:3000");
-  }, []);
 
   useEffect(() => {
     function onSensorData(data: any) {
@@ -29,15 +23,15 @@ const SensorDataDisplay: React.FC<{ initialSensorData: any }> = ({
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-row gap-10 items-center justify-center">
-        <span id="temperature" className="text-6xl text-gray-800">
+        <span id="temperature" className="text-6xl text-gray-800 text-center">
           🌡️ {sensorData.temperature}°C
         </span>
-        <span id="humidity" className="text-6xl text-gray-800">
+        <span id="humidity" className="text-6xl text-gray-800 text-center">
           💦 {sensorData.humidity}%
         </span>
       </div>
       <div className="text-center">
-        <span id="last-updated" className="text-sm text-gray-400">
+        <span id="last-updated" className="text-sm text-gray-400 text-center">
           Last updated{" "}
           {dayjs(sensorData.timestamp).format("YYYY-MM-DD HH:mm:ss")}
         </span>

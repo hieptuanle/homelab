@@ -32,4 +32,26 @@ module.exports = async function (fastify) {
       reply.status(500).send();
     }
   });
+
+  fastify.get("/api/yeelight", async function () {
+    const { yeelight } = fastify;
+    const response = await yeelight.get_prop("power");
+    return { power: JSON.parse(response).result[0] };
+  });
+
+  fastify.put("/api/yeelight", async function (request, reply) {
+    const { power } = request.body;
+
+    if (power === undefined) {
+      return reply.status(400).send();
+    }
+
+    const { yeelight } = fastify;
+
+    await yeelight.set_power(power);
+
+    fastify.io.emit("yeelight", { power });
+
+    return reply.send({ power });
+  });
 };
