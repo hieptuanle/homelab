@@ -7,6 +7,10 @@
  */
 module.exports = async function (fastify) {
   fastify.get("/", async function (request, reply) {
-    return reply.view("home", { title: "Home" });
+    return reply.view("home", {
+      title: "Home",
+      buildTime: fastify.buildmetadata.buildTime,
+      latestCommitTime: fastify.buildmetadata.latestCommitTime,
+    });
   });
 };
