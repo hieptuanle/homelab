@@ -16,9 +16,9 @@ export default async function Dashboard() {
         <p>
           <Link
             className="text-sm text-gray-400 p-2 rounded-md hover:text-gray-600 hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-            href="/hello"
+            href="/"
           >
-            ⬅️ Back to Hello Page
+            ⬅️ Back to Home Page
           </Link>
         </p>
       </div>
