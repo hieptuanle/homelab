@@ -12,13 +12,13 @@ export default async function Dashboard() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-around py-10 px-5">
       <div className="flex flex-col items-center gap-5">
-        <h1 className="text-6xl text-gray-900">Dashboard</h1>
+        <h1 className="text-6xl">Dashboard</h1>
         <p>
           <Link
             className="text-sm text-gray-400 p-2 rounded-md hover:text-gray-600 hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             href="/"
           >
-            ⬅️ Back to Home Page
+            Back to Home Page
           </Link>
         </p>
       </div>

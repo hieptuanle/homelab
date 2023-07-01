@@ -14,7 +14,7 @@ export default function Clock({ initialTime }: { initialTime: string }) {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="text-6xl text-gray-800">⏰ {time}</h1>
+      <h1 className="text-6xl">⏰ {time}</h1>
     </div>
   );
 }

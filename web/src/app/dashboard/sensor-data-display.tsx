@@ -23,15 +23,15 @@ const SensorDataDisplay: React.FC<{ initialSensorData: any }> = ({
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-row gap-10 items-center justify-center">
-        <span id="temperature" className="text-6xl text-gray-800 text-center">
+        <span id="temperature" className="text-6xl text-center">
           🌡️ {sensorData.temperature}°C
         </span>
-        <span id="humidity" className="text-6xl text-gray-800 text-center">
+        <span id="humidity" className="text-6xl text-center">
           💦 {sensorData.humidity}%
         </span>
       </div>
       <div className="text-center">
-        <span id="last-updated" className="text-sm text-gray-400 text-center">
+        <span id="last-updated" className="text-sm text-center">
           Last updated{" "}
           {dayjs(sensorData.timestamp).format("YYYY-MM-DD HH:mm:ss")}
         </span>

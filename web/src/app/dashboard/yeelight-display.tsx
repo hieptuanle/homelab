@@ -12,7 +12,7 @@ const YeelightDisplay: React.FC<{
   return (
     <>
       <div
-        className="text-6xl text-gray-800 hover:cursor-pointer"
+        className="text-6xl hover:cursor-pointer"
         onClick={() => {
           setYeelightState({ power: state.power === "on" ? "off" : "on" });
         }}
