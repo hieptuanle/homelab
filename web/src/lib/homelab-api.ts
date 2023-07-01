@@ -1,4 +1,4 @@
-const HOMELAB_URL = process.env.NEXT_PUBLIC_HOMELAB_URL;
+import { HOMELAB_URL } from "./env";
 
 export type TPowerValue = "on" | "off";
 
