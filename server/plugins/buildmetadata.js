@@ -10,7 +10,8 @@ const dayjs = require("dayjs");
   LATEST_COMMIT_TIME=2023-07-01T18:27:43+07:00
   ```
 
-  This plugin should read from that file and decorate buildmetadata property to fastify with propery buildTime and latestCommitTime
+  This plugin should read from that file and decorate buildmetadata property to
+  fastify with propery buildTime and latestCommitTime
 */
 
 module.exports = fp(async function (fastify) {
