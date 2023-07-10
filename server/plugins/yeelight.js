@@ -58,6 +58,7 @@ module.exports = fp(async function (fastify) {
   });
 
   await updateYeelightState();
+  setInterval(updateYeelightState, 10000);
 
   fastify.decorate("yeelight", yeelight);
 });
