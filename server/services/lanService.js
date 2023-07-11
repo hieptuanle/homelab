@@ -3,7 +3,7 @@ const childProcess = require("child_process");
 exports.getConnectedDevices = function () {
   return new Promise((resolve, reject) => {
     childProcess.exec(
-      `ssh -p ${process.env.ROUTER_PORT} ${process.env.ROUTER_DOMAIN} arp -a`,
+      `ssh -p ${process.env.ROUTER_PORT} ${process.env.ROUTER_USERNAME}@${process.env.ROUTER_DOMAIN} arp -a`,
       function (err, stdout, stderr) {
         /* stdout:
   ? (192.168.0.1) at 34:60:f9:e4:b5:83 [ether]  on eth1

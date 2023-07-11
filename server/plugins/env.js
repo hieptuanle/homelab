@@ -14,6 +14,7 @@ module.exports = fp(async function (fastify) {
         "SOCKETIO_PORT",
         "ROUTER_DOMAIN",
         "ROUTER_PORT",
+        "ROUTER_USERNAME",
         "POSTGRES_HOST",
         "POSTGRES_USER",
         "POSTGRES_PASSWORD",
